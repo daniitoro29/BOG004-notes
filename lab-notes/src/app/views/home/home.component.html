@@ -1,1 +1,5 @@
-<p>Hola, soy la vista principal del block de notas</p>
+<h1>Hola, soy la vista principal del block de notas</h1>
+<button type="button" (click)="showTag()">Activa la imágen</button>
+<div *ngIf="img">
+  <img src="https://img.freepik.com/vector-gratis/diseno-colorido-bloc-notas-notas_23-2148695099.jpg?w=740" alt="Logo">
+</div>
