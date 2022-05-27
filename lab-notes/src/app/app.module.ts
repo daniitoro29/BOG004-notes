@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './views/login/login.component';
 import { HomeComponent } from './views/home/home.component';
 import { NewNotesComponent } from './views/new-notes/new-notes.component';
-import { AngularFireModule } from '@angular/fire';
+/* import { AngularFireModule } from '@angular/fire'; */
 
 
 const firebaseConfig = {
