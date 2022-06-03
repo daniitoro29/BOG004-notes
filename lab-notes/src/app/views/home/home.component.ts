@@ -14,15 +14,19 @@ img: boolean = false;
 
   ngOnInit(): void {
   }
-  logout(){
+  signOut(){
     this.authService
-      .SignOut()
-        .then(() => this.router.navigate(['']))
-
-  }
-  //Esto es un método. Solo se activa cuando le damos click al botón
+      .logout()
+         .then(() => {
+           window.alert('Para cerrar sesión, oprime aceptar');
+          this.router.navigate([''])
+         })
+         }
+      //Esto es un método. Solo se activa cuando le damos click al botón
   showTag(){
     this.img=true;
   }
+  }
 
-}
+
+

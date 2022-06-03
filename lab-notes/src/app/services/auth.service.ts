@@ -8,19 +8,13 @@ import firebase from 'firebase/compat/app';
 })
 export class AuthService {
 
-  constructor(private afauth:AngularFireAuth) { }
+  constructor(public auth: AngularFireAuth) { }
 
-  async loginWithGoogle (email:string, password:string){
-    try {
-      return await this.afauth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    } catch(err){
-      console.log('Error en login con google', err);
-      return null;
-    }
-  }
-  SignOut() {
-    return this.afauth.signOut().then(() => {
-      window.alert('Para cerrar sesión, oprima Aceptar');
-    });
-  }
+loginWithGoogle(){
+  return this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+}
+
+logout () {
+  return this.auth.signOut();
+}
 }
