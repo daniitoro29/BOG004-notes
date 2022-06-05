@@ -14,6 +14,7 @@ img: boolean = false;
 
   ngOnInit(): void {
   }
+  // Función para cerrar sesión
   signOut(){
     this.authService
       .logout()
@@ -22,6 +23,10 @@ img: boolean = false;
           this.router.navigate([''])
          })
          }
+  // Función que lleva a la vista de crear una nueva vista
+  newNotes () {
+    this.router.navigate(['newnotes']);
+  }
       //Esto es un método. Solo se activa cuando le damos click al botón
   showTag(){
     this.img=true;
