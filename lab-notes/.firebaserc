@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "labnotes-notiks"
+  },
+  "targets": {
+    "labnotes-notiks": {
+      "hosting": {
+        "lab-notes": [
+          "labnotes-notiks"
+        ]
+      }
+    }
+  }
+}
