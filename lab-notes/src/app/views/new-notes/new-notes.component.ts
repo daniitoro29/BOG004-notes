@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import Note from 'src/app/interfaces/notes.interface';
+import { FirestoreService } from 'src/app/services/firestore.service';
+
 
 @Component({
   selector: 'app-new-notes',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewNotesComponent implements OnInit {
 
-  constructor() { }
+  formNotes: FormGroup;
+
+  constructor(private firestoreService: FirestoreService, public formBuilder:FormBuilder) {
+    this.formNotes = this.formBuilder.group({
+      title : [''],
+      note : [''],
+    })
+   }
 
   ngOnInit(): void {
+    this.formNotes;
+  }
+
+   async onSubmit() {
+    console.log(this.formNotes.value);
+    const response= await this.firestoreService.addNote(this.formNotes.value);
+  }
+
+  saveNote(){
+    this.onSubmit();
+    this.formNotes.reset();
   }
 
 }

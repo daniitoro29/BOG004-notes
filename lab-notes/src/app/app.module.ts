@@ -10,16 +10,17 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-const firebaseConfig = {
+/* const firebaseConfig = {
   apiKey: "AIzaSyDzRXSb42PnyBs6nGdJObJ-nRgxO_V3Xrc",
   authDomain: "labnotes-notiks.firebaseapp.com",
   projectId: "labnotes-notiks",
   storageBucket: "labnotes-notiks.appspot.com",
   messagingSenderId: "374898730928",
   appId: "1:374898730928:web:5a666bad98dc1916d4d875"
-};
+}; */
 
 @NgModule({
   declarations: [
@@ -31,9 +32,11 @@ const firebaseConfig = {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

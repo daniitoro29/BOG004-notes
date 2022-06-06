@@ -1,5 +1,12 @@
-<input id="tittle" type="text" placeholder="Título:">
-<textarea id="note" placeholder="Nota:"></textarea>
+<div [formGroup]="formNotes">
+  <input id="title" formControlName="title" type="text" placeholder="Título:" [value]="formNotes">
+  <textarea id="note" formControlName="note" placeholder="Nota:"></textarea>
+</div>
+<button class="btn waves-effect waves-light" type="submit" name="action" (click)="saveNote()">Submit
+  <i class="material-icons right">send</i>
+</button>
+<!-- <input type="text" [(ngModel)]="noteTitle"> --->
+
 
 
 
