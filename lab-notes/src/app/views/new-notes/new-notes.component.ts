@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import Note from 'src/app/interfaces/notes.interface';
 import { FirestoreService } from 'src/app/services/firestore.service';
+import { SendInformationService } from 'src/app/services/send-information.service';
 
 
 @Component({
@@ -12,14 +14,14 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 export class NewNotesComponent implements OnInit {
 
   formNotes: FormGroup;
-  newNotes: Note[];
+  showNotes: Note[];
 
-  constructor(private firestoreService: FirestoreService, public formBuilder:FormBuilder) {
+  constructor(private firestoreService: FirestoreService, public formBuilder:FormBuilder, private sendInformationServices:SendInformationService, private router:Router) {
     this.formNotes = this.formBuilder.group({
       title : [''],
       note : [''],
     });
-    this.newNotes = [{
+    this.showNotes = [{
       title : '',
       note : '',
     }]
@@ -28,20 +30,31 @@ export class NewNotesComponent implements OnInit {
 
   ngOnInit(): void {
     this.formNotes;
-    this.firestoreService.getNotes().subscribe(notes => {
-      this.newNotes = notes;
-      console.log(this.newNotes, 'aaaaaaaaaaaaaaaaaaa')
-    })
+    this.getNewNotes();
   }
 
    async onSubmit() {
-    console.log(this.formNotes.value);
     const response= await this.firestoreService.addNote(this.formNotes.value);
   }
 
   saveNote(){
     this.onSubmit();
     this.formNotes.reset();
+    this.router.navigate(['home']);
+  }
+
+  getNewNotes() {
+    this.firestoreService.getNotes().subscribe(notes => {
+    this.showNotes = notes;
+    this.sendNotes();
+
+    })
+  }
+
+  sendNotes(){
+    this.sendInformationServices.dispatchSendInformation.emit({
+      data: this.showNotes
+    });
   }
 
 }

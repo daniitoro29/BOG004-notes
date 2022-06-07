@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { SendInformationService } from 'src/app/services/send-information.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +11,20 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HomeComponent implements OnInit {
 img: boolean = false;
+  listNotes : any;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router,  private sendInformationServices:SendInformationService, private firestoreService: FirestoreService) { }
 
   ngOnInit(): void {
+    this.getInformation();
   }
+
+  getInformation(){
+    this.firestoreService.getNotes().subscribe(data => {
+    return this.listNotes = data ;
+    })
+  }
+
   // Función para cerrar sesión
   signOut(){
     this.authService
