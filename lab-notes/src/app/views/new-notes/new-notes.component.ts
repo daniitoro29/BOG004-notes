@@ -12,16 +12,26 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 export class NewNotesComponent implements OnInit {
 
   formNotes: FormGroup;
+  newNotes: Note[];
 
   constructor(private firestoreService: FirestoreService, public formBuilder:FormBuilder) {
     this.formNotes = this.formBuilder.group({
       title : [''],
       note : [''],
-    })
+    });
+    this.newNotes = [{
+      title : '',
+      note : '',
+    }]
+
    }
 
   ngOnInit(): void {
     this.formNotes;
+    this.firestoreService.getNotes().subscribe(notes => {
+      this.newNotes = notes;
+      console.log(this.newNotes, 'aaaaaaaaaaaaaaaaaaa')
+    })
   }
 
    async onSubmit() {
