@@ -1,10 +1,23 @@
 <div class="container">
-  <h2>¡Aquí veras tus notas!</h2>
+  <h2>#notiks</h2>
   <img src="../../../assets/img/logout.svg" alt="logout" (click)="signOut()">
-  <button type="button" (click)="showTag()">Activa la imágen</button>
+<!--   <button type="button" (click)="showTag()">Activa la imágen</button> -->
   <a class="btn-floating btn-large waves-effect waves-light grey" ><i class="material-icons" (click)="newNotes()">add</i></a>
+
 </div>
 
-<div *ngIf="img">
+<div class="row" *ngFor="let unitNote of listNotes" >
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text" >
+        <span class="card-title">{{unitNote.title}}</span>
+        <p>{{unitNote.note}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="img" >
   <img src="https://img.freepik.com/vector-gratis/diseno-colorido-bloc-notas-notas_23-2148695099.jpg?w=740" alt="Logo">
 </div>
