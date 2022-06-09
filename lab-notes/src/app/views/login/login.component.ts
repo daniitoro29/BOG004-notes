@@ -18,7 +18,9 @@ export class LoginComponent implements OnInit {
   loginGoogle(){
     this.authService.loginWithGoogle()
       .then(res=> {
-        this.route.navigate(['home']);
+        if(res) {
+          this.route.navigate(['home']);
+        }
         })
   }
 

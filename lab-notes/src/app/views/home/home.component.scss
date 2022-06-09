@@ -1,4 +1,29 @@
 *{
-  display: grid;
   justify-items: center;
+}
+.containerNotes{
+  display: grid;
+}
+.logout{
+  margin-left: 80%;
+  margin-top: 4vh;
+  height: 80px;
+  width: 80px;
+}
+
+h2{
+  text-align: center;
+  font-size: 42px;
+  margin-top: 1%;
+}
+
+.newNoteButton{
+  position: relative;
+  margin-left: 80%;
+  margin-top:60%;
+}
+
+.row{
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0;
 }
