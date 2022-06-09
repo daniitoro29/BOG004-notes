@@ -45,6 +45,7 @@ img: boolean = false;
   }
 
   async onClickDelete(note:Note){
+    window.alert('¿Estás seguro de eliminar la nota?');
     const response = await this.firestoreService.deleteNotes(note);
     console.log(response);
 
