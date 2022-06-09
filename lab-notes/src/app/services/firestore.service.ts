@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { collectionData, Firestore } from '@angular/fire/firestore';
+import { collectionData, deleteDoc, doc, Firestore } from '@angular/fire/firestore';
 import { addDoc, collection } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import Note from '../interfaces/notes.interface';
@@ -19,5 +19,10 @@ export class FirestoreService {
   getNotes (): Observable<Note[]>{
     const noteCollection = collection(this.firestore, 'notes');
     return collectionData(noteCollection, {idField: 'id'}) as Observable<Note[]>;
+  }
+
+  deleteNotes(note:Note) {
+    const noteDocCollection = doc(this.firestore, `notes/${note.id}`);
+    return deleteDoc(noteDocCollection);
   }
 }
