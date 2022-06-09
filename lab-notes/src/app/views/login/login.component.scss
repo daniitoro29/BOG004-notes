@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Poppins:wght@100&display=swap');
 *{
   display: grid;
   justify-items: center;
@@ -6,4 +7,15 @@
 img{
   width: 100px;
   height: 100px;
+  margin-top: 5%;
+}
+h3{
+  margin-top: 70%;
+  font-size: 240%;
+  font-weight: bolder;
+}
+h1{
+  font-size: 110px;
+  font-family: 'Handlee', cursive;
+  margin-top: 15%;
 }
