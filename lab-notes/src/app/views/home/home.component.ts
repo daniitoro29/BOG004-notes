@@ -48,8 +48,18 @@ img: boolean = false;
     window.alert('¿Estás seguro de eliminar la nota?');
     const response = await this.firestoreService.deleteNotes(note);
     console.log(response);
-
   }
+
+  editeNote(note:Note){
+    console.log(note.id, 'note.id');
+    this.sendInformationServices.dispatchSendId.emit({
+      data: note,
+    })
+    this.router.navigate(['editnote']);
+  }
+
+
+
 
   }
 
