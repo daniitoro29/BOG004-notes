@@ -50,6 +50,9 @@ img: boolean = false;
     console.log(response);
 
   }
+  editeNote(note:Note){
+    this.router.navigate(['editnote']);
+  }
 
   }
 
