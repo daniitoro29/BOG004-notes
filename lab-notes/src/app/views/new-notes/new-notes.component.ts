@@ -15,6 +15,7 @@ export class NewNotesComponent implements OnInit {
 
   formNotes: FormGroup;
   showNotes: Note[];
+  getData: [];
 
   constructor(private firestoreService: FirestoreService, public formBuilder:FormBuilder, private sendInformationServices:SendInformationService, private router:Router) {
     this.formNotes = this.formBuilder.group({
@@ -24,7 +25,8 @@ export class NewNotesComponent implements OnInit {
     this.showNotes = [{
       title : '',
       note : '',
-    }]
+    }];
+   this.getData = [];
 
    }
 
@@ -56,5 +58,7 @@ export class NewNotesComponent implements OnInit {
       data: this.showNotes
     });
   }
+
+
 
 }

@@ -1,22 +1,29 @@
 <div class="container">
-  <img class="logout" src="../../../assets/img/logout.svg" alt="logout" (click)="signOut()">
-   <h2>#notiks</h2>
+  <div class="nav">
+    <h2>#notiks</h2>
+    <img class="logout" src="../../../assets/img/logout.svg" alt="logout" (click)="signOut()">
+  </div>
    <div class="containerNotes">
     <div class="row">
-      <div class="col s4 m6" *ngFor="let unitNote of listNotes">
+      <div class="col s2 m6" *ngFor="let unitNote of listNotes">
         <div class="hoverable">
-          <div class="card lime lighten-5">
-            <div class="card-content black-text">
+          <div class="card grey lighten-4">
+            <div class=" black-text">
               <h2 class="title">{{unitNote.title}}</h2>
               <h5>{{unitNote.note}}</h5>
             </div>
-            <i class="material-icons" (click)="onClickDelete(unitNote)">delete</i>
+            <div class="icons">
+              <i class="material-icons" (click)="editeNote(unitNote)">edit</i>
+              <i class="material-icons" (click)="onClickDelete(unitNote)">delete</i>
+            </div>
           </div>
         </div>
       </div>
     </div>
    </div>
-  <a class="btn-floating btn-large waves-effect waves-light grey newNoteButton" ><i class="material-icons" (click)="newNotes()">add</i></a>
+   <div class="containerButtonAdd">
+     <a class="btn-floating btn-large waves-effect waves-light grey newNoteButton" ><i class="material-icons" (click)="newNotes()">add</i></a>
+   </div>
 </div>
 
 

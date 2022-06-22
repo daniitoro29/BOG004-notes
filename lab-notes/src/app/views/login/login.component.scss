@@ -3,19 +3,20 @@
   display: grid;
   justify-items: center;
 }
-
 img{
   width: 100px;
   height: 100px;
   margin-top: 5%;
 }
 h3{
-  margin-top: 70%;
+  margin-top: 30%;
   font-size: 240%;
   font-weight: bolder;
 }
 h1{
   font-size: 110px;
   font-family: 'Handlee', cursive;
-  margin-top: 15%;
+}
+.container{
+  height: 50px;
 }
