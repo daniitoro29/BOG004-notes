@@ -1,12 +1,13 @@
 <div class="containerNewNotes">
-  <i class="large material-icons" (click)="returnView()">chevron_left</i>
+  {{title}}
+<!--   <i class="large material-icons" (click)="returnView()">chevron_left</i> -->
   <div [formGroup]="formNotes" class="FormNewNotes" >
-    <input id="title" formControlName="title" type="text" [placeholder]="noteId" [value]="formNotes" >
-    <textarea id="note" formControlName="note" placeholder="Nota:" >{{noteId}} aaaaaaaaaaaaaaaaaaa</textarea>
+    <input id="title" formControlName="title" type="text" [(ngModel)]="title" >
+    <textarea id="note" formControlName="note" > </textarea>
     <!-- <p *ngIf="noteId">Holisssssssss</p> -->
   </div>
-  <br *ngIf="noteId != ''"> Notes -{{noteId}} aaaaaaaaaaaaaaa <br />
-  <button class="btn waves-effect waves-light brown lighten-4" type="submit" name="action" >Editar
+  <br *ngIf="noteId != ''"> Notes -{{noteId}} <br />
+  <button class="btn waves-effect waves-light brown lighten-4" type="submit" name="action" (click)="returnView()">Editar
     <i class="material-icons right">send</i>
   </button>
 </div>
