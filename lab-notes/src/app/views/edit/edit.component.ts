@@ -19,6 +19,7 @@ export class EditComponent implements OnInit {
   public getInformationNotes: any[] = [];
   public noteSelected: any;
   title: string = '';
+  content: string = '';
 
   constructor(
     private firestoreService: FirestoreService,
@@ -44,18 +45,8 @@ export class EditComponent implements OnInit {
     .then((note)=>{
       console.log(note);
        this.title = note[0].title;
-
+       this.content = note[0].note;
     });
-    //this.getInformationNotes = await this.getInformation(this.noteId);
-    /* if (this.getInformationNotes.length === 0) {
-      this.returnView();
-    } else {
-      this.noteSelected = this.getInformationNotes;
-      console.log(
-        '🚀 ~ file: edit.component.ts ~ line 40 ~ EditComponent ~ ngOnInit ~ note',
-        this.getInformationNotes
-      );
-    }*/
   }
 
   getNoteForEdit() {
@@ -87,21 +78,6 @@ export class EditComponent implements OnInit {
     });
   }
 
-  /*   getInformation(id: string){
-    return new Promise((resolve, reject) => {
-      this.firestoreService.getNotes().pipe(take(1)).subscribe(data => {
-        this.idFilter = data.filter((element)=> element.id == id );
-      console.log((data.filter((element)=> element.id == id )), '*************************************');
-
-         resolve(data.filter((element)=> element.id == id ));
-      })
-        reject('Esto es un error')
-    })
-
-
-  } */
-
-
   onClickUpdate(note:Note, id:string ){
     this.firestoreService.updateNote(note, id)
     .then(()=>{
@@ -116,7 +92,6 @@ export class EditComponent implements OnInit {
     this.formNotes.reset();
     this.router.navigate(['home']);
   } */
-
 
   //(click)="onClickUpdate(unitNote, unitNote.id)
 }

@@ -1,32 +1,10 @@
 <div class="containerNewNotes">
   {{title}}
-<!--   <i class="large material-icons" (click)="returnView()">chevron_left</i> -->
   <div [formGroup]="formNotes" class="FormNewNotes" >
     <input id="title" formControlName="title" type="text" [(ngModel)]="title" >
-    <textarea id="note" formControlName="note" > </textarea>
-    <!-- <p *ngIf="noteId">Holisssssssss</p> -->
+    <textarea id="note" formControlName="note" [(ngModel)]="content"> </textarea>
   </div>
-  <br *ngIf="noteId != ''"> Notes -{{noteId}} <br />
   <button class="btn waves-effect waves-light brown lighten-4" type="submit" name="action" (click)="returnView()">Editar
     <i class="material-icons right">send</i>
   </button>
 </div>
-
-
-
-<!--  <div class="container">
-
-   <div class="containerNotes">
-    <div class="row">
-        <div class="hoverable">
-          <div class="card lime lighten-5">
-            <div class="card-content black-text">
-              <h2 class="title">{{formNotes}}</h2>
-              <h5>{{formNotes}}</h5>
-            </div>
-          </div>
-        </div>
-    </div>
-   </div>
-</div> -->
-
